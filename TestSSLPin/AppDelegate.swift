@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TrustKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        TrustKit.setLoggerBlock { (message) in
+            print("TrustKit log: \(message)")
+        }
+        
+        let trustKitConfig: [String: Any] = [
+            kTSKSwizzleNetworkDelegates: false,
+            kTSKPinnedDomains: [
+                "yahoo.com": [
+                    kTSKEnforcePinning: true,
+                    kTSKIncludeSubdomains: true,
+                    
+                    // Invalid pins to demonstrate a pinning failure
+                    kTSKPublicKeyHashes: [
+                         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                         "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB="
+                    ],
+                    kTSKReportUris:["https://overmind.datatheorem.com/trustkit/report"],
+                ],
+                "www.google.com": [
+                    kTSKEnforcePinning: true,
+                    
+                    // Valid pin and backup pin
+                    kTSKPublicKeyHashes: [
+                        "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+                        "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB="
+                    ]
+                    //kTSKReportUris:["https://overmind.datatheorem.com/trustkit/report"],
+                ]
+            ]]
+        
+        TrustKit.initSharedInstance(withConfiguration: trustKitConfig)
+        
         return true
     }
 

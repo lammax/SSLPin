@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		040B46C02502D0F60051951A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040B46BF2502D0F60051951A /* Assets.xcassets */; };
 		040B46C32502D0F60051951A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040B46C22502D0F60051951A /* Preview Assets.xcassets */; };
 		040B46C62502D0F60051951A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040B46C42502D0F60051951A /* LaunchScreen.storyboard */; };
+		040B46D02502D31A0051951A /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B46CF2502D31A0051951A /* NetManager.swift */; };
+		3A2053BEE34651B8649E28A5 /* Pods_TestSSLPin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353649AE661924F05DB12888 /* Pods_TestSSLPin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		040B46C22502D0F60051951A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		040B46C52502D0F60051951A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040B46C72502D0F60051951A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		040B46CF2502D31A0051951A /* NetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		23809C19D5F1EED3EED3E05B /* Pods-TestSSLPin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestSSLPin.release.xcconfig"; path = "Target Support Files/Pods-TestSSLPin/Pods-TestSSLPin.release.xcconfig"; sourceTree = "<group>"; };
+		353649AE661924F05DB12888 /* Pods_TestSSLPin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestSSLPin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		632C03B4A075A98EA6516DF5 /* Pods-TestSSLPin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestSSLPin.debug.xcconfig"; path = "Target Support Files/Pods-TestSSLPin/Pods-TestSSLPin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2053BEE34651B8649E28A5 /* Pods_TestSSLPin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +47,11 @@
 		040B46AD2502D0F20051951A = {
 			isa = PBXGroup;
 			children = (
+				040B46CE2502D2EB0051951A /* Lib */,
 				040B46B82502D0F20051951A /* TestSSLPin */,
 				040B46B72502D0F20051951A /* Products */,
+				5F69489EB6B6ADDE05F9E322 /* Pods */,
+				08391941689531A09BE65463 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +85,31 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		040B46CE2502D2EB0051951A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				040B46CF2502D31A0051951A /* NetManager.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		08391941689531A09BE65463 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				353649AE661924F05DB12888 /* Pods_TestSSLPin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F69489EB6B6ADDE05F9E322 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				632C03B4A075A98EA6516DF5 /* Pods-TestSSLPin.debug.xcconfig */,
+				23809C19D5F1EED3EED3E05B /* Pods-TestSSLPin.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 040B46CA2502D0F60051951A /* Build configuration list for PBXNativeTarget "TestSSLPin" */;
 			buildPhases = (
+				20B2669EE58304423643CDF5 /* [CP] Check Pods Manifest.lock */,
 				040B46B22502D0F20051951A /* Sources */,
 				040B46B32502D0F20051951A /* Frameworks */,
 				040B46B42502D0F20051951A /* Resources */,
+				7DD2EA3CC88D5CB2EEA29531 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,12 +178,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20B2669EE58304423643CDF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestSSLPin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DD2EA3CC88D5CB2EEA29531 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestSSLPin/Pods-TestSSLPin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestSSLPin/Pods-TestSSLPin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestSSLPin/Pods-TestSSLPin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		040B46B22502D0F20051951A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				040B46BA2502D0F20051951A /* AppDelegate.swift in Sources */,
+				040B46D02502D31A0051951A /* NetManager.swift in Sources */,
 				040B46BC2502D0F20051951A /* SceneDelegate.swift in Sources */,
 				040B46BE2502D0F20051951A /* ContentView.swift in Sources */,
 			);
@@ -282,6 +362,7 @@
 		};
 		040B46CB2502D0F60051951A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632C03B4A075A98EA6516DF5 /* Pods-TestSSLPin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -289,6 +370,7 @@
 				DEVELOPMENT_TEAM = Z8JVJD6M2F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestSSLPin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +384,7 @@
 		};
 		040B46CC2502D0F60051951A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23809C19D5F1EED3EED3E05B /* Pods-TestSSLPin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,6 +392,7 @@
 				DEVELOPMENT_TEAM = Z8JVJD6M2F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestSSLPin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
